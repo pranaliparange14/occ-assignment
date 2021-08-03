@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.5.0.js"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.4/knockout.validation.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+   
+    <title>assignment4</title>
+</head>
+<body>
+    <div id="knockout-app" class="card">
+<section class="contact-form">
+  <h1 style="margin: 2%;">Form validation:</h1>
+ 
+  <div class="card-section" data-bind="visible: !hasBeenSubmitted()">
+  
+    <form data-bind="submit: handleSubmit">
+    <div class="field">
+        <label for="First-name">First Name*</label>
+        <input data-bind="value: firstName, css: { error: firstName.error() && firstName.isModified() }" id="first-name" type="text" />
+    </div>
+    <div class="field">
+      <label for="Last-name">Last Name*</label>
+      <input data-bind="value: lastName, css: { error: lastName.error() && lastName.isModified() }" id="last-name" type="text" />
+  </div>
+      <div class="field">
+        <label for="email">Email Address*</label>
+        <input data-bind="value: emailAddress, css: { error: emailAddress.error() && emailAddress.isModified() }" placeholder="you@mail.com" id="email" type="text" />
+    </div>
+    
+    <div class="field">
+      <label for="Gender" > select gender</label><br>
+      <div class="select-container">
+         <select id="gender" data-bind="value: genderType">
+          <option value="none" selected disabled hidden>
+              Select an Option
+          </option> 
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+              
+         </select>
+         
+      </div>
+  </div>
+  <div class="field">
+      <label for="course">Courses</label><br>
+       Course-1<input type="checkbox" id="course" value="Course-1" data-bind = "checked: course"/><br>
+       Course-2<input type="checkbox" id="course1" value="Course-2" data-bind = "checked: course"/><br>
+       Course-3<input type="checkbox" id="course2" value="Course-3" data-bind = "checked: course"/><br>
+       <span class="validationMessage" ></span>
+      </div>
+    
+  
+    <input type="submit" value="Continue">
+  </form>
+</section>
+</div>
+</div>
+<script src="js/app.js"></script>
+
+</body>
+</html>
